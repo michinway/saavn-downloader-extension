@@ -1,0 +1,43 @@
+{
+    "name": "Jiosaavn Song Downloader",
+    "version": "2.0.0",
+    "manifest_version": 2,
+    "description": "Explore Jiosaavn without ads or download your favourite songs with this extension",
+    "icons": {
+        "500": "icons/logo.png"
+    },
+    "default_locale": "en",
+    "permissions": [
+        "https://www.jiosaavn.com/*"
+    ],
+    "content_scripts": [{
+            "matches": [
+                "https://www.jiosaavn.com/*"
+            ],
+            "css": [
+                "src/inject/inject.css"
+            ]
+        },
+        {
+            "matches": [
+                "https://www.jiosaavn.com/*"
+            ],
+            "js": [
+                "js/jquery.min.js",
+                "js/jszip.js",
+                "js/filesaver.js",
+                "js/id3.js",
+                "downloader.js",
+                "src/inject/inject.js",
+                "js/ffmpeg-core.js",
+                "js/ffmpeg.min.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        "downloader.js",
+        "js/ffmpeg-core.js",
+        "js/ffmpeg-core.wasm",
+        "js/ffmpeg-core.worker.js"
+    ]
+}
